@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # include Z
-. /home/rootn/Tools/z/z.sh
+. /home/rootn/tools/z/z.sh
 
 alias plz=sudo
 alias ll=ls -l
