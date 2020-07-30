@@ -66,7 +66,7 @@ ZSH_THEME="mrtazz"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,6 +105,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+EDITOR=vim
 
 alias plz=sudo
 alias ll=ls -l
