@@ -1,13 +1,13 @@
 #!/bin/sh
-apt-get update 
+sudo apt-get update
 
 # symblink dotfiles to the home directory
-apt-get install -y stow
+sudo apt-get install -y stow
 stow ubuntu
 
 # Change default shell to zsh
 echo "\nInstalling zsh..."
-apt install -y zsh
+sudo apt install -y zsh
 [ $SHELL != $(which zsh) ] && chsh -s $(which zsh) || echo "(skipped) default shell is already zsh"
 
 # install oh-my-zsh

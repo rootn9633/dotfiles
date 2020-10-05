@@ -1,3 +1,4 @@
+ENV_SYNOLOGY=true
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +9,8 @@ export ZSH="/home/rootn/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="mrtazz"
+# ZSH_THEME="mrtazz"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -42,7 +44,7 @@ ZSH_THEME="mrtazz"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -66,7 +68,7 @@ ZSH_THEME="mrtazz"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions wakatime)
+plugins=(zsh-autosuggestions wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,14 +102,87 @@ source $ZSH/oh-my-zsh.sh
 # include Z
 . /home/rootn/tools/z/z.sh
 
+#  echo "nvm start"
+#  export NVM_DIR="$HOME/.nvm"
+#  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#  echo "nvm end"
+
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+# Spaceship prompt
+SPACESHIP_PROMPT_ORDER=(
+    # time          # Time stampts section
+    user          # Username section
+    dir           # Current directory section
+    host          # Hostname section
+    git           # Git section (git_branch + git_status)
+    # hg            # Mercurial section (hg_branch  + hg_status)
+    # package       # Package version
+    # node          # Node.js section
+    # ruby          # Ruby section
+    # elm           # Elm section
+    # elixir        # Elixir section
+    # xcode         # Xcode section
+    # swift         # Swift section
+    golang        # Go section
+    # php           # PHP section
+    # rust          # Rust section
+    # haskell       # Haskell Stack section
+    # julia         # Julia section
+    # docker        # Docker section
+    # aws           # Amazon Web Services section
+    # gcloud        # Google Cloud Platform section
+    venv          # virtualenv section
+    # conda         # conda virtualenv section
+    # pyenv         # Pyenv section
+    # dotnet        # .NET section
+    # ember         # Ember.js section
+    kubectl       # Kubectl context section
+    # terraform     # Terraform workspace section
+    exec_time     # Execution time
+    line_sep      # Line break
+    # battery       # Battery level and status
+    # vi_mode       # Vi-mode indicator
+    jobs          # Background jobs indicator
+    exit_code     # Exit code section
+    char          # Prompt character
+  )
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_VERSION_SHOW=false
+
 EDITOR=vim
 
 alias plz=sudo
-alias ll=ls -l
+alias ll="ls -l"
 alias python=python3
+alias synotp="c2 misc synotp"
+
+# PATH varieble for go
+PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:$GOPATH/bin
+
+# Created by `userpath` on 2020-08-04 03:03:48
+export PATH="$PATH:/home/rootn/.local/bin"
+
+# AutoComplete for pipx
+eval "$(register-python-argcomplete pipx)"
+
+# AutoComplete for C2
+# eval "$(\_C2_COMPLETE=source_zsh c2)"
+
+# Vault
+export VAULT_ADDR='https://cst-vault.syno:8200'
+export VAULT_SKIP_VERIFY=true
+
+stty start undef
+stty -ixon
+
+if [ "$ENV_SYNOLOGY" = true ] ; then
+	source ~/dotfiles/synology
+fi
