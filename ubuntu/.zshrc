@@ -44,7 +44,8 @@ ZSH_THEME="spaceship"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="false"
+# DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -176,13 +177,9 @@ eval "$(register-python-argcomplete pipx)"
 # AutoComplete for C2
 # eval "$(\_C2_COMPLETE=source_zsh c2)"
 
-# Vault
-export VAULT_ADDR='https://cst-vault.syno:8200'
-export VAULT_SKIP_VERIFY=true
-
 stty start undef
 stty -ixon
 
 if [ "$ENV_SYNOLOGY" = true ] ; then
-	source ~/dotfiles/synology
+	source $HOME/dotfiles/synology
 fi
