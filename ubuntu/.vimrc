@@ -185,6 +185,9 @@ let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()"
 
+" turn off number and indentlines for copying
+map <leader>c :set relativenumber!<CR>:set number!<CR>:IndentLinesToggle<CR>
+
 " Press F4 to toggle highlighting on/off, and show current value.
 nnoremap <F4> :set hlsearch! hlsearch?<CR>
 
