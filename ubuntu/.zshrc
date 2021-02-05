@@ -1,4 +1,4 @@
-ENV_SYNOLOGY=true
+ENV_SYNOLOGY=false
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -115,6 +115,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
+base16_materia
 
 # Spaceship prompt
 SPACESHIP_PROMPT_ORDER=(
@@ -157,12 +158,11 @@ SPACESHIP_PROMPT_ORDER=(
 SPACESHIP_KUBECTL_SHOW=true
 SPACESHIP_KUBECTL_VERSION_SHOW=false
 
-EDITOR=vim
+export EDITOR=vim
 
 alias plz=sudo
 alias ll="ls -l"
 alias python=python3
-alias synotp="c2 misc synotp"
 
 # PATH varieble for go
 PATH=$PATH:/usr/local/go/bin
@@ -171,15 +171,17 @@ PATH=$PATH:$GOPATH/bin
 # Created by `userpath` on 2020-08-04 03:03:48
 export PATH="$PATH:/home/rootn/.local/bin"
 
-# AutoComplete for pipx
-eval "$(register-python-argcomplete pipx)"
-
-# AutoComplete for C2
-# eval "$(\_C2_COMPLETE=source_zsh c2)"
-
 stty start undef
 stty -ixon
 
 if [ "$ENV_SYNOLOGY" = true ] ; then
 	source $HOME/dotfiles/synology
 fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# GO
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)

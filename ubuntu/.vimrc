@@ -58,6 +58,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
@@ -82,6 +83,8 @@ let g:pyindent_open_paren='&sw'
 "" ----------------------------------------------
 " settings for go files
 " ----------------------------------------------
+au! BufNewFile,BufReadPost *.{go} set filetype=go
+" autocmd FileType go setlocal ts=4 sts=4 sw=4 expandtab
 
 " ----------------------------------------------
 " fatih/vim-go
@@ -102,6 +105,10 @@ let g:go_highlight_generate_tags = 1
 let g:go_gocode_propose_source=0
 
 let g:godef_split=2
+
+" show function definition on cursor
+let g:go_auto_type_info = 1
+set updatetime=100
 
 " ----------------------------------------------
 " Delete trailing white space on save
@@ -158,8 +165,8 @@ set ttymouse=xterm2
 
 
 set cursorline
-set listchars=tab:\|\ ,
-set list
+" set listchars=tab:\|\ ,
+" set list
 
 set whichwrap+=<,>,[,]
 
@@ -170,6 +177,10 @@ nnoremap <C-H> <C-W><left>
 
 nnoremap <Esc>h :tabp<CR>
 nnoremap <Esc>l :tabn<CR>
+" keys for mac
+nnoremap ˙ :tabp<CR>
+nnoremap ¬ :tabn<CR>
+
 
 let mapleader = ","
 
