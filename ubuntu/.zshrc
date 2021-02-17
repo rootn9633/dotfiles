@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# silence bell
+unsetopt BEEP
+
 
 # include Z
 . /home/rootn/tools/z/z.sh

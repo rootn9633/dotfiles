@@ -283,3 +283,5 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
+" silence bell
+set visualbell
