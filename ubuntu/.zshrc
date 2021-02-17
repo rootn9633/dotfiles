@@ -162,7 +162,8 @@ export EDITOR=vim
 
 alias plz=sudo
 alias ll="ls -l"
-alias python=python3
+# alias python=python3
+alias synotp="c2 misc synotp"
 
 # PATH varieble for go
 PATH=$PATH:/usr/local/go/bin
@@ -175,7 +176,7 @@ stty start undef
 stty -ixon
 
 if [ "$ENV_SYNOLOGY" = true ] ; then
-	source $HOME/dotfiles/synology
+        source $HOME/dotfiles/synology
 fi
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

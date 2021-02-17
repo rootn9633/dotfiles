@@ -68,6 +68,7 @@ call plug#end()
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
 au! BufNewFile,BufReadPost *.{yaml,yml}.gotmpl set filetype=yaml
 au! BufNewFile,BufReadPost *.{yaml,yml}.dec set filetype=yaml
+au! BufNewFile,BufReadPost *.{yaml,yml}.j2 set filetype=yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "" ----------------------------------------------
@@ -146,9 +147,9 @@ set relativenumber
 "set smarttab
 set showtabline=2
 " 1 tab == 4 spaces
-"set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+set expandtab
 " Set to auto read when a file is changed from the outside
 set autoread
 au CursorHold * checktime
