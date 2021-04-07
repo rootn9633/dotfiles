@@ -285,3 +285,7 @@ augroup end
 
 " silence bell
 set visualbell
+set belloff=all
+
+" show list of file
+set wildmode=list:longest,full
