@@ -97,13 +97,8 @@ set cursorline
 set enc=utf8
 set number
 set relativenumber
-"set expandtab
-"set smarttab
 set showtabline=2
-" 1 tab == 4 spaces
-set tabstop=4
-set softtabstop=4
-set expandtab
+set ts=4 sts=4 sw=4 expandtab
 " Set to auto read when a file is changed from the outside
 set autoread
 au CursorHold * checktime
