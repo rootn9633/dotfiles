@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 " Plugin 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin 'Raimondi/delimitMate'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'itchyny/lightline.vim'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-fugitive'
