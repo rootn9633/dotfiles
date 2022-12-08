@@ -10,6 +10,10 @@ echo "\nInstalling zsh..."
 sudo apt install -y zsh
 [ $SHELL != $(which zsh) ] && chsh -s $(which zsh) || echo "(skipped) default shell is already zsh"
 
+# Install zplug
+echo "\nInstalling zplug"
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
 # install oh-my-zsh
 echo "\nInstalling oh-my-zsh..."
 [ ! -d "$HOME/.oh-my-zsh" ] && {

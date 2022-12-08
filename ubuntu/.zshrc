@@ -73,6 +73,20 @@ plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.zplug/init.zsh
+zplug chriskempson/base16-shell, from:github
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
+
+base16_materia
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -114,11 +128,11 @@ unsetopt BEEP
 
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-            eval "$("$BASE16_SHELL/profile_helper.sh")"
-base16_materia
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#             eval "$("$BASE16_SHELL/profile_helper.sh")"
+# base16_materia
 
 # Spaceship prompt
 SPACESHIP_PROMPT_ORDER=(
