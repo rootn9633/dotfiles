@@ -39,3 +39,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     base16_materia
 EOF
 } || echo "(skipped) base16 was previously installed"
+
+# install node for coc.nvim
+! node -v >/dev/null 2>&1 && {
+    echo "\nInstalling node"
+    curl -sL install-node.vercel.app/lts | sudo bash
+}
