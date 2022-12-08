@@ -1,5 +1,6 @@
 #!/bin/sh
 sudo apt-get update
+sudo apt install tig
 
 # symblink dotfiles to the home directory
 sudo apt-get install -y stow
